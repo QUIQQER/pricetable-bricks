@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locales>
+    <groups name="quiqqer/pricetablebricks" datatype="php, js">
+
+        <!--descritpion & title  -->
+        <locale name="package.title">
+            <de><![CDATA[Preistabelle Bausteine]]></de>
+            <en><![CDATA[Price table bricks]]></en>
+        </locale>
+
+        <locale name="package.description">
+            <de><![CDATA[...]]></de>
+            <en><![CDATA[...]]></en>
+        </locale>
+
+
+    </groups>
+</locales>

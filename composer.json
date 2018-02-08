@@ -1,0 +1,30 @@
+{
+    "name" : "quiqqer/pricetable-bricks",
+    "type" : "quiqqer-module",
+    "description" : "",
+    "version" : "dev-master",
+    "license" : "GPL-3.0+",
+
+    "authors" : [{
+        "name": "Michael Danielczok",
+        "email": "michael@pcsg.de",
+        "homepage": "http://www.pcsg.de",
+        "role": "Developer"
+    }],
+
+    "support" : {
+        "email": "support@pcsg.de",
+        "url": "http://www.pcsg.de"
+    },
+
+    "require": {
+        "quiqqer/quiqqer" : "*@dev",
+        "quiqqer\/fontawesome": "*@dev"
+    },
+
+    "autoload": {
+        "psr-4" : {
+            "QUI\\PriceTableBricks\\" : "src/QUI/PriceTableBricks"
+        }
+    }
+}
