@@ -1,0 +1,114 @@
+.qui-pricetable {
+    margin: 4em 0;
+}
+
+.qui-pricetable-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.qui-pricetable-entry {
+    font-size: 13px;
+    text-align: center;
+    width: 32%;
+    margin: 10px;
+    border: 1px solid #d5d5d5;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.08);
+
+    width: 200px;
+    flex: 1 0 auto;
+    max-width: calc(50% - 20px);
+}
+
+.qui-pricetable-entry.highlight {
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.18)
+}
+
+.qui-pricetable-entry-header {
+    padding: 40px 10px;
+}
+
+.qui-pricetable-entry-header-title {
+    padding-bottom: 10px;
+    font-size: 26px;
+}
+
+.qui-pricetable-entry-header-title.no-inherit-template-colors {
+    color: inherit;
+}
+
+.qui-pricetable-entry-header-subtitle {
+    margin: 0;
+}
+
+.qui-pricetable-entry-priceContainer {
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #eee;
+}
+
+.highlight .qui-pricetable-entry-priceContainer {
+    transform: scale(1.05);
+    box-shadow: 0 0 7px rgba(0,0,0,0.5);
+}
+
+.qui-pricetable-entry-priceContainer-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.qui-pricetable-entry-priceContainer-wrapper-srp {
+    text-decoration: line-through;
+    opacity: 0.5;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.qui-pricetable-entry-priceContainer-wrapper-price {
+    font-size: 30px;
+    line-height: 120%;
+    font-weight: normal;
+}
+
+.qui-pricetable-entry-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.qui-pricetable-entry-features li {
+    padding: 10px;
+    margin: 0;
+    border-bottom: 1px solid #eee;
+}
+
+.qui-pricetable-entry-features li:first-child {
+    border-bottom: 1px solid #eee;
+}
+
+.qui-pricetable-entry-button {
+    margin-top: auto;
+}
+
+.qui-pricetable-entry-button .button {
+    min-width: 60%;
+    font-weight: normal;
+}
+
+.no-inherit-template-colors.button {
+    color: #333;
+    background: none;
+    border: 2px solid #555;
+}
+
+.no-inherit-template-colors.button:hover {
+    background: rgba(0,0,0,0.05);
+}
