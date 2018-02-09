@@ -24,7 +24,7 @@
 }
 
 .qui-pricetable-entry.highlight {
-    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.18)
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.18);
 }
 
 .qui-pricetable-entry-header {
@@ -53,9 +53,15 @@
     background: #eee;
 }
 
+.qui-pricetable-entry-priceContainer.control-background {
+
+}
+
 .highlight .qui-pricetable-entry-priceContainer {
     transform: scale(1.05);
     box-shadow: 0 0 7px rgba(0,0,0,0.5);
+    background: linear-gradient(45deg, #444, #555);
+    color: #fff;
 }
 
 .qui-pricetable-entry-priceContainer-wrapper {

@@ -18,6 +18,10 @@
     {/if}
 
     <div class="qui-pricetable-entry {if $entry.highlight}highlight{/if}">
+        <img src="/media/cache/test/bg/pexels-photo3__400x265.jpg" class="qui-pricetable-entry-image"/>
+        {if $entry.img}
+            {*image src=$entry.img class="qui-pricetable-entry-image"*}
+        {/if}
         <header class="qui-pricetable-entry-header">
             <h2 class="qui-pricetable-entry-header-title control-color {$noInheritTemplateColors}">
                 {$entry.title}

@@ -2,6 +2,49 @@
 <quiqqer>
     <bricks>
 
+        <!-- Price Table -->
+        <brick control="\QUI\PriceTableBricks\Bricks\PriceTable">
+            <title>
+                <locale group="quiqqer/pricetable" var="bricks.PriceTable.title"/>
+            </title>
+            <description>
+                <locale group="quiqqer/pricetable" var="bricks.PriceTable.description"/>
+            </description>
+
+            <settings>
+                <setting name="title">
+                    <locale group="quiqqer/pricetable" var="PriceTable.title"/>
+                </setting>
+
+                <setting name="inherit-template-colors" type="checkbox">
+                    <locale group="quiqqer/pricetable" var="pricetable.inheritTemplateColors"/>
+                </setting>
+
+                <setting name="pricetable.display" type="select">
+                    <text>
+                        <locale group="quiqqer/pricetable"
+                                var="pricetable.display.title"/>
+                    </text>
+                    <option value="default">
+                        <locale group="quiqqer/pricetable"
+                                var="pricetable.display.default"/>
+                    </option>
+                </setting>
+
+                <setting name="feature-lines" type="number">
+                    <locale group="quiqqer/pricetable" var="pricetable.featureLines"/>
+                </setting>
+
+                <setting name="features" type="hidden">
+                    <locale group="quiqqer/pricetable" var="pricetable.features"/>
+                </setting>
+
+                <setting name="entries" data-qui="package/quiqqer/pricetable-bricks/bin/Controls/PriceTable">
+                    <locale group="quiqqer/pricetable" var="PriceTable.entries"/>
+                </setting>
+            </settings>
+        </brick>
+
         <!-- Social Share List -->
         <!--<brick control="\QUI\Socialshare\Bricks\SocialshareList">
             <title>
