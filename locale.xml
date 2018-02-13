@@ -14,5 +14,10 @@
         </locale>
 
 
+        <locale name="control.pricetable.addEntry">
+            <de><![CDATA[Tabelleneintrag hinzufügen]]></de>
+            <en><![CDATA[Add entry]]></en>
+        </locale>
+
     </groups>
 </locales>

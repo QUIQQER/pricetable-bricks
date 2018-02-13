@@ -8,14 +8,24 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
     'utils/Controls',
     'Locale',
     'Mustache',
+    'qui/controls/windows/Confirm',
+    'qui/utils/Form',
 
     'text!package/quiqqer/pricetable-bricks/bin/Controls/PriceTable.Entry.html',
     'css!package/quiqqer/pricetable-bricks/bin/Controls/PriceTable.css'
 
-], function (QUIFormList, QUIControls, QUILocale, Mustache, EntryTemplate) {
+], function (
+    QUIFormList,
+    QUIControls,
+    QUILocale,
+    Mustache,
+    QUIConfirm,
+    QUIFormUtils,
+    EntryTemplate
+) {
     "use strict";
 
-    var lg = 'quiqqer/pricetable';
+    var lg = 'quiqqer/pricetablebricks';
 
     return new Class({
 
@@ -24,30 +34,56 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
 
         Binds: [
             '$onImport',
-            '$onParsed'
+            'createEntry',
+            '$onParsed',
+            '$openFeatures',
+            '$getFeaturesData',
+            '$renderFeatures',
+            '$saveFeaturesData',
+            '$updateFeaturesList'
         ],
 
         initialize: function (options) {
             this.parent(options);
 
             this.addEvents({
-                onParsed : this.$onParsed,
-                onImport  : this.$onImport
+                onParsed: this.$onParsed,
+                onImport: this.$onImport
             });
 
             var html = Mustache.render(EntryTemplate, {});
 
             this.setAttributes({
-                buttonText: 'neues Entry',
-                entry: html
+                buttonText: QUILocale.get(lg, 'control.pricetable.addEntry'),
+                entry     : html
             });
 
         },
 
         $onImport: function () {
             this.parent();
+            var self = this;
 
-            console.log(this.$Elm.getParent('tbody').getElement('input[name="feature-lines"]').value);
+            this.$Elm.getElement('button').addEvent('click', function () {
+                this.createEntry();
+            }.bind(this));
+
+            this.createEntry();
+
+
+            this.HiddenInputs = this.$Elm.getElements('input[name="features"]');
+
+            this.HiddenInputs.each(function (HiddenInput) {
+                self.$updateFeaturesList(HiddenInput);
+            });
+
+        },
+
+        createEntry: function () {
+            this.FeaturesBtn = this.$Elm.getElements('.features-button');
+            this.maxFeaturs = this.$Elm.getParent('tbody').getElement('input[name="feature-lines"]').value;
+
+            this.FeaturesBtn.addEvent('click', this.$openFeatures);
         },
 
         /**
@@ -62,6 +98,115 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
             QUIControls.parse(Element).then(function () {
                 // Element is fully parsed so we can finally show it
                 Element.getElement('.quiqqe-pricetable-bricks-entry').show();
+            });
+        },
+
+        $openFeatures: function (event) {
+            var Target = event.target;
+            var HiddenInput = Target.getParent('label').getElement('.features-input');
+
+            this.maxFeaturs = this.$Elm.getParent('tbody').getElement('input[name="feature-lines"]').value;
+
+            var self = this;
+            new QUIConfirm({
+                class             : 'features-popup',
+                maxWidth          : 500,
+                maxHeight         : 400,
+                titleicon         : false,
+                icon              : false,
+                title             : 'Features',
+                autoclose         : false,
+                backgroundClosable: false,
+                titleCloseButton  : true,
+                events            : {
+                    onOpen : function (Win) {
+                        var Content = Win.getContent(),
+                            data    = self.$getFeaturesData(HiddenInput);
+
+                        Content.set('html', '<header>Anzahl der Features: ' + self.maxFeaturs + '</header>');
+                        self.$renderFeatures(Content, data);
+                    },
+                    onClose: function () {
+                        // needed because of chrome render bug
+                        document.body.setStyle('transform', 'translateZ(0)');
+                        (function () {
+                            document.body.setStyle('transform', null);
+                        }).delay(100);
+                    },
+
+                    onSubmit: function (Win) {
+                        self.$saveFeaturesData(Win, HiddenInput);
+                        self.$updateFeaturesList(HiddenInput);
+                        Win.close();
+                    }
+                }
+            }).open();
+        },
+
+        $getFeaturesData: function (HiddenInput) {
+            var data = HiddenInput.value;
+
+            // data available?
+            if (data) {
+                return JSON.parse(data);
+            }
+            return data;
+        },
+
+        $renderFeatures: function (Content, data) {
+            var Container = new Element('div', {
+                'class': 'popup-features-container'
+            });
+
+            console.log(this.maxFeaturs)
+
+            for (var i = 0; i < this.maxFeaturs; i++) {
+                new Element('input', {
+                    'class'    : 'popup-features-input',
+                    'type'     : 'text',
+                    'data-json': data[i],
+                    'value'    : data[i]
+                }).inject(Container);
+            }
+
+            Container.inject(Content);
+        },
+
+        $saveFeaturesData: function (Win, HiddenInput) {
+            var Content    = Win.getContent(),
+                inputs     = Content.getElements('input'),
+                jsonObject = {};
+
+            inputs.each(function (input, key) {
+                if (input.value) {
+                    jsonObject[key] = input.value;
+                }
+            });
+
+            /*var jsonString = JSON.stringify(jsonObject);
+
+            if (jsonString.length < 3) {
+                jsonString = '';
+            }*/
+
+            HiddenInput.value = JSON.stringify(jsonObject);
+
+            // need to save the data after click in "save" button
+            this.$refreshData();
+        },
+
+        $updateFeaturesList: function (HiddenInput) {
+            var List = HiddenInput.getParent('label').getElement('ul'),
+                Data = this.$getFeaturesData(HiddenInput);
+
+
+            // todo kann man besser machen, als die Liste löschen und neue li Elemente erstellen
+            List.set('html', '');
+
+            Object.each(Data, function (value) {
+                new Element('li', {
+                    html: value
+                }).inject(List);
             });
         }
     });

@@ -27,23 +27,47 @@
     background: #a6abbd;
 }
 
-.qui-controls-formlist-entry-data {
+.quiqqe-pricetable-bricks-entry-data {
     max-width: 700px;
     width: 100% !important;
 }
 
-.quiqqer-bricks-ContentSwitcher-entry label {
+.quiqqe-pricetable-bricks-entry label {
     width: 100% !important;
 }
 
-.quiqqer-bricks-ContentSwitcher-entry span.entry-title {
+.quiqqe-pricetable-bricks-entry span.entry-title {
 
     display: block;
     margin-bottom: 6px;
 }
 
-.quiqqer-bricks-ContentSwitcher-entry input,
-.quiqqer-bricks-ContentSwitcher-entry textarea {
+.quiqqe-pricetable-bricks-entry input,
+.quiqqe-pricetable-bricks-entry textarea {
     max-width: 100%;
     width: 100%;
 }
+
+.features-list {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.features-list li {
+    padding: 3px 0px;
+}
+
+/* features popup */
+.features-popup header {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.popup-features-input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
