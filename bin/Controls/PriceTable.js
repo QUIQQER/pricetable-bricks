@@ -189,7 +189,7 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
                 jsonString = '';
             }*/
 
-            HiddenInput.value = JSON.stringify(jsonObject);
+            HiddenInput.value = JSON.encode(jsonObject);
 
             // need to save the data after click in "save" button
             this.$refreshData();

@@ -9,7 +9,7 @@
     {$this->getAttribute('content')}
 </div>
 {/if}
-
+sssssssssssssss
 <div class="qui-pricetable-container">
 
     {foreach from=$entries item=entry key=key}
@@ -17,7 +17,7 @@
         {image src=$entry.img  width=200 onlysrc=true assign=img}
     {/if}
 
-    <div class="qui-pricetable-entry {if $entry.highlight}highlight{/if}">
+    <div class="qui-pricetable-entry {*if $entry.highlight}highlight{/if*}">
         <img src="/media/cache/test/bg/pexels-photo3__400x265.jpg" class="qui-pricetable-entry-image"/>
         {if $entry.img}
             {*image src=$entry.img class="qui-pricetable-entry-image"*}
@@ -50,7 +50,7 @@
         </ul>
 
         <div class="qui-pricetable-entry-button">
-            <a class="button {$noInheritTemplateColors}" href="{$entry.url}" title="">Bestellen</a>
+            <a class="button {$noInheritTemplateColors}" href="{*$entry.url*}" title="">Bestellen</a>
         </div>
     </div>
 

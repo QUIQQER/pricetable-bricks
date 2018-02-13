@@ -37,59 +37,5 @@
             </settings>
         </brick>
 
-        <!-- Social Share List -->
-        <!--<brick control="\QUI\Socialshare\Bricks\SocialshareList">
-            <title>
-                <locale group="quiqqer/socialshare"
-                        var="bricks.socialshareList.title"
-                />
-            </title>
-            <description>
-                <locale group="quiqqer/socialshare"
-                        var="bricks.socialshareList.description"
-                />
-            </description>
-
-            <settings>
-
-                &lt;!&ndash; show label &ndash;&gt;
-                <setting name="socialshare.brick.settings.showLabel" type="checkbox">
-                    <text>
-                        <locale group="quiqqer/socialshare"
-                                var="socialshare.settings.general.showLabel"/>
-                    </text>
-                </setting>
-
-                &lt;!&ndash; show icon  &ndash;&gt;
-                <setting name="socialshare.brick.settings.showIcon" type="checkbox">
-                    <text>
-                        <locale group="quiqqer/socialshare"
-                                var="socialshare.settings.general.showIcon"/>
-                    </text>
-                </setting>
-
-                &lt;!&ndash; theme &ndash;&gt;
-                <setting name="socialshare.brick.settings.theme" type="select">
-                    <text>
-                        <locale group="quiqqer/socialshare"
-                                var="socialshare.settings.general.theme"/>
-                    </text>
-                    <option value="classic">
-                        <locale group="quiqqer/socialshare"
-                                var="socialshare.settings.general.theme.classic"/>
-                    </option>
-                    <option value="flat">
-                        <locale group="quiqqer/socialshare"
-                                var="socialshare.settings.general.theme.flat"/>
-                    </option>
-                    <option value="minima">
-                        <locale group="quiqqer/socialshare"
-                                var="socialshare.settings.general.theme.minima"/>
-                    </option>
-                </setting>
-
-            </settings>
-        </brick>-->
-
     </bricks>
 </quiqqer>

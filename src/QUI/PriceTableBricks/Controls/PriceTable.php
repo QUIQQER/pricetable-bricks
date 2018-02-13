@@ -43,14 +43,21 @@ class PriceTable extends Control
      */
     public function getBody()
     {
-        $this->testData();
-
         $Engine  = QUI::getTemplateManager()->getEngine();
         $entries = $this->getAttribute('entries');
+
 
         if (is_string($entries)) {
             $entries = json_decode($entries, true);
         }
+
+        foreach ($entries as $key => $value) {
+            $entries[$key]['features'] = json_decode($entries[$key]['features'], true);
+        }
+
+        echo "<pre>";
+        print_r($entries);
+        echo "</pre>";
 
         switch ($this->getAttribute('display')) {
             case 'default':
@@ -59,6 +66,8 @@ class PriceTable extends Control
                 $template = dirname(__FILE__) . '/PriceTable.Default.html';
                 break;
         }
+
+        echo $template . "<br>";
 
         if (!$this->getAttribute('inherit-template-colors')) {
             $noInheritTemplateColors = 'no-inherit-template-colors';
@@ -119,6 +128,7 @@ class PriceTable extends Control
 
     /**
      * @return mixed|QUI\Projects\Site
+     * @throws QUI\Exception
      */
     protected function getSite()
     {
