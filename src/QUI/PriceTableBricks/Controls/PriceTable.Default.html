@@ -20,7 +20,7 @@
                 {image src=$entry.img  width=200 onlysrc=true assign=img}
             {/if}
 
-            <div class="qui-pricetable-entry {if $entry.highlight == true}highlight{/if}">
+            <div class="qui-pricetable-entry {*if $entry.highlight == true}highlight{/if*}">
 
                 {if $entry.img}
                     <a class="" href="{$entry.url}" title="{$entry.title}">

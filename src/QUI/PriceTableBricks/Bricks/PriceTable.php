@@ -44,7 +44,10 @@ class PriceTable extends Control
         $Control = new QUI\PriceTableBricks\Controls\PriceTable(array(
             'inherit-template-colors' => $this->getAttribute('inherit-template-colors'),
             'entries'                 => $this->getAttribute('entries'),
-            'display'                 => $this->getAttribute('pricetable.display')
+            'display'                 => $this->getAttribute('pricetable.display'),
+            'content'                 => $this->getAttribute('content'),
+            'frontendTitle'           => $this->getAttribute('frontendTitle'),
+            'showTitle'               => $this->getAttribute('showTitle')
         ));
 
         return $Control->create();

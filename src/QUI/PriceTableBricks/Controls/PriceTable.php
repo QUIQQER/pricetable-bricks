@@ -46,7 +46,6 @@ class PriceTable extends Control
         $Engine  = QUI::getTemplateManager()->getEngine();
         $entries = $this->getAttribute('entries');
 
-
         if (is_string($entries)) {
             $entries = json_decode($entries, true);
         }
