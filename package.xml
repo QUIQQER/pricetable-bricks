@@ -1,18 +1,18 @@
 <quiqqer>
     <package>
         <title>
-            <locale group="quiqqer/pricebtale-bricks" var="package.title"/>
+            <locale group="quiqqer/pricetable-bricks" var="package.title"/>
         </title>
 
         <description>
-            <locale group="quiqqer/pricebtale-bricks" var="package.description"/>
+            <locale group="quiqqer/pricetable-bricks" var="package.description"/>
         </description>
 
-        <!--<image src='URL_OPT_DIR/quiqqer/pricebtale-bricks/bin/images/Logo.jpg'/>-->
+        <!--<image src='URL_OPT_DIR/quiqqer/pricetable-bricks/bin/images/Logo.jpg'/>-->
 
         <!--<preview>
-            <image src="URL_OPT_DIR/quiqqer/pricebtale-bricks/bin/images/preview/PriceTableBricks_1.jpg"/>
-            <image src="URL_OPT_DIR/quiqqer/pricebtale-bricks/bin/images/preview/PriceTableBricks_2.jpg"/>
+            <image src="URL_OPT_DIR/quiqqer/pricetable-bricks/bin/images/preview/PriceTableBricks_1.jpg"/>
+            <image src="URL_OPT_DIR/quiqqer/pricetable-bricks/bin/images/preview/PriceTableBricks_2.jpg"/>
         </preview>-->
 
         <support>
