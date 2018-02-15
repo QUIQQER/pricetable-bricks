@@ -8,7 +8,7 @@
             <locale group="quiqqer/pricebtale-bricks" var="package.description"/>
         </description>
 
-        <image src='URL_OPT_DIR/quiqqer/pricebtale-bricks/bin/images/Logo.jpg'/>
+        <!--<image src='URL_OPT_DIR/quiqqer/pricebtale-bricks/bin/images/Logo.jpg'/>-->
 
         <!--<preview>
             <image src="URL_OPT_DIR/quiqqer/pricebtale-bricks/bin/images/preview/PriceTableBricks_1.jpg"/>

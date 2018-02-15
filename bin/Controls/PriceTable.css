@@ -1,51 +1,88 @@
-.qui-controls-formlist-entry {
-    background: #e8edff;
-    padding: 10px;
-    margin: 10px 0;
-    border-bottom: none;
+div.qui-controls-formlist-entry {
+    background: rgba(0,0,0,0.05);
+    padding: 0;
+    margin: 50px 0 0;
+    border: 1px solid #ccc;;
     position: relative;
+}
+
+div.qui-controls-formlist-entry:last-child {
+    border-bottom: 1px solid #ccc;
+}
+
+div.qui-controls-formlist-entry-data {
+    padding: 0;
+    width: 100%;
+}
+
+.qui-controls-project-site-input.box {
+    display: flex;
+    width: 100%;
+}
+
+.qui-controls-project-media-input-path {
+    background: #fff;
 }
 
 .qui-controls-formlist-entry-delete {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: -1px;
+    top: -32px;
     padding: 0 !important;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    background: rgba(0,0,0,0.05);
 }
 
 .qui-controls-formlist-entry-delete .qui-button {
     border: none;
     box-shadow: none;
     border-radius: 0;
-    border-left: 1px solid #cdd2e2;
     background: #c8cdde;
-    border-bottom: 1px solid #cdd2e2;
     color: #333;
+    background: none;
 }
 
 .qui-controls-formlist-entry-delete .qui-button:hover {
     background: #a6abbd;
 }
 
+
+/* price table entry */
 .quiqqe-pricetable-bricks-entry-data {
     max-width: 700px;
     width: 100% !important;
 }
 
-.quiqqe-pricetable-bricks-entry label {
-    width: 100% !important;
-}
-
-.quiqqe-pricetable-bricks-entry span.entry-title {
-
-    display: block;
-    margin-bottom: 6px;
-}
-
-.quiqqe-pricetable-bricks-entry input,
-.quiqqe-pricetable-bricks-entry textarea {
-    max-width: 100%;
+div.quiqqe-pricetable-bricks-entry label {
     width: 100%;
+    display: flex;
+    align-items: flex-start;
+    padding: 5px 10px;
+    margin: 0;
+}
+
+div.quiqqe-pricetable-bricks-entry label:nth-child(2n + 2) {
+    background: rgba(255,255,255,0.6);
+}
+
+.quiqqe-pricetable-bricks-entry .entry-title {
+    width: 150px;
+    margin-right: 10px;
+}
+
+.quiqqe-pricetable-bricks-entry .entry-input {
+    width: calc(100% - 160px);
+}
+
+.entry-title-features {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+a.qui-button.features-button {
+    margin-top: 10px;
 }
 
 .features-list {
@@ -70,4 +107,8 @@
     margin-bottom: 10px;
 }
 
-
+.quiqqe-pricetable-bricks-entry input,
+.quiqqe-pricetable-bricks-entry textarea {
+    max-width: 100%;
+    width: 100%;
+}

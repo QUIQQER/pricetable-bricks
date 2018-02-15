@@ -1,7 +1,7 @@
 {
     "name" : "quiqqer/pricetable-bricks",
     "type" : "quiqqer-module",
-    "description" : "",
+    "description" : "Collection of bricks to show your products or services on your website in the form of a modern table.",
     "version" : "dev-dev",
     "license" : "GPL-3.0+",
 

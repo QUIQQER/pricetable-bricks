@@ -10,17 +10,13 @@
 .qui-pricetable-entry {
     font-size: 13px;
     text-align: center;
-    width: 32%;
     margin: 10px;
     border: 1px solid #d5d5d5;
     display: flex;
     flex-direction: column;
     padding-bottom: 20px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.08);
-
-    width: 200px;
-    flex: 1 0 auto;
-    max-width: calc(50% - 20px);
+    flex: 1 0 200px;
 }
 
 .qui-pricetable-entry.highlight {
@@ -45,7 +41,7 @@
 }
 
 .qui-pricetable-entry-priceContainer {
-    min-height: 100px;
+    min-height: 110px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,13 +65,15 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
+    flex-direction: column;
 }
 
 .qui-pricetable-entry-priceContainer-wrapper-srp {
     text-decoration: line-through;
     opacity: 0.5;
-    font-size: 16px;
+    font-size: 13px;
     margin-right: 10px;
+    line-height: 100%;
 }
 
 .qui-pricetable-entry-priceContainer-wrapper-price {
@@ -86,18 +84,18 @@
 
 .qui-pricetable-entry-features {
     list-style: none;
-    padding: 0;
+    padding: 0 10px;
     margin: 0 0 20px 0;
 }
 
 .qui-pricetable-entry-features li {
-    padding: 10px;
+    padding: 10px 0;
     margin: 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ddd;
 }
 
 .qui-pricetable-entry-features li:first-child {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ddd;
 }
 
 .qui-pricetable-entry-button {

@@ -25,7 +25,7 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
 ) {
     "use strict";
 
-    var lg = 'quiqqer/pricetablebricks';
+    var lg = 'quiqqer/pricetable-bricks';
 
     return new Class({
 
@@ -51,10 +51,21 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
                 onImport: this.$onImport
             });
 
-            var html = Mustache.render(EntryTemplate, {});
+            var html = Mustache.render(EntryTemplate, {
+                'highlight'     : QUILocale.get(lg, 'bricks.pricetable.entry.highlight'),
+                'title'         : QUILocale.get(lg, 'bricks.pricetable.entry.entryTitle'),
+                'subtitle'      : QUILocale.get(lg, 'bricks.pricetable.entry.subtitle'),
+                'image'         : QUILocale.get(lg, 'bricks.pricetable.entry.image'),
+                'price'         : QUILocale.get(lg, 'bricks.pricetable.entry.price'),
+                'srp'           : QUILocale.get(lg, 'bricks.pricetable.entry.srp'),
+                'priceInfo'     : QUILocale.get(lg, 'bricks.pricetable.entry.priceInfo'),
+                'url'           : QUILocale.get(lg, 'bricks.pricetable.entry.url'),
+                'featuresTitle' : QUILocale.get(lg, 'bricks.pricetable.entry.featuresTitle'),
+                'featuresButton': QUILocale.get(lg, 'bricks.pricetable.entry.featuresButton')
+            });
 
             this.setAttributes({
-                buttonText: QUILocale.get(lg, 'control.pricetable.addEntry'),
+                buttonText: QUILocale.get(lg, 'bricks.pricetable.addEntry'),
                 entry     : html
             });
 
@@ -75,6 +86,12 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
 
             this.HiddenInputs.each(function (HiddenInput) {
                 self.$updateFeaturesList(HiddenInput);
+            });
+
+            var checkboxen = this.$Elm.getElements('input[type="checkbox"]');
+
+            checkboxen.addEvent('change', function () {
+                self.$refreshData();
             });
 
         },
@@ -114,7 +131,7 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
                 maxHeight         : 400,
                 titleicon         : false,
                 icon              : false,
-                title             : 'Features',
+                title             : QUILocale.get(lg, 'bricks.pricetable.entry.featuresPopup.title'),
                 autoclose         : false,
                 backgroundClosable: false,
                 titleCloseButton  : true,
@@ -123,7 +140,9 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
                         var Content = Win.getContent(),
                             data    = self.$getFeaturesData(HiddenInput);
 
-                        Content.set('html', '<header>Anzahl der Features: ' + self.maxFeaturs + '</header>');
+                        Content.set('html', '<header>' +
+                            QUILocale.get(lg, 'bricks.pricetable.featureLines') +
+                            ': ' + self.maxFeaturs + '</header>');
                         self.$renderFeatures(Content, data);
                     },
                     onClose: function () {
@@ -157,8 +176,6 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
             var Container = new Element('div', {
                 'class': 'popup-features-container'
             });
-
-            console.log(this.maxFeaturs)
 
             for (var i = 0; i < this.maxFeaturs; i++) {
                 new Element('input', {

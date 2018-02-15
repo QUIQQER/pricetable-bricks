@@ -9,7 +9,11 @@
     {$this->getAttribute('content')}
 </div>
 {/if}
-sssssssssssssss
+
+<div class="grid-children">
+    <div class="grid-children-container">
+
+
 <div class="qui-pricetable-container">
 
     {foreach from=$entries item=entry key=key}
@@ -17,11 +21,14 @@ sssssssssssssss
         {image src=$entry.img  width=200 onlysrc=true assign=img}
     {/if}
 
-    <div class="qui-pricetable-entry {*if $entry.highlight}highlight{/if*}">
-        <img src="/media/cache/test/bg/pexels-photo3__400x265.jpg" class="qui-pricetable-entry-image"/>
+    <div class="qui-pricetable-entry {if $entry.highlight == true}highlight{/if}">
+
         {if $entry.img}
-            {*image src=$entry.img class="qui-pricetable-entry-image"*}
+            <a class="" href="{$entry.url}" title="{$entry.title}">
+            {image src=$entry.img class="qui-pricetable-entry-image" title="{$entry.title}"}
+            </a>
         {/if}
+
         <header class="qui-pricetable-entry-header">
             <h2 class="qui-pricetable-entry-header-title control-color {$noInheritTemplateColors}">
                 {$entry.title}
@@ -50,10 +57,14 @@ sssssssssssssss
         </ul>
 
         <div class="qui-pricetable-entry-button">
-            <a class="button {$noInheritTemplateColors}" href="{*$entry.url*}" title="">Bestellen</a>
+            <a class="button {$noInheritTemplateColors}" href="{$entry.url}" title="">
+                {locale group="quiqqer/pricetable-bricks" var="bricks.pricetable.button.order"}
+            </a>
         </div>
     </div>
 
     {/foreach}
 
+</div>
+    </div>
 </div>

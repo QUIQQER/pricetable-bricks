@@ -1,36 +1,62 @@
 <div class="quiqqe-pricetable-bricks-entry">
 
     <label>
-        <span class="entry-title">Überschrift</span>
-        <input type="text" name="title" />
+        <div class="entry-title">Eintrag hervorheben</div>
+        <div class="entry-input">
+            <input type="checkbox" name="highlight"/>
+        </div>
     </label>
     <label>
-        <span class="entry-title">Untertitel bzw. Kurzbeschreibung</span>
-        <input type="text" name="subtitle" />
-    </label>
-    <label class="entry-image">
-        <span class="entry-title">Bild</span>
-        <input class="media-image" data-qui-options-selectable_types="image" name="img"/>
+        <div class="entry-title">{{title}}</div>
+        <div class="entry-input">
+            <input type="text" name="title"/>
+        </div>
     </label>
     <label>
-        <span class="entry-title">Preis</span>
-        <input type="text" name="price" />
+        <div class="entry-title">{{subtitle}}</div>
+        <div class="entry-input">
+            <input type="text" name="subtitle"/>
+        </div>
     </label>
     <label>
-        <span class="entry-title">UVP</span>
-        <input type="text" name="srp" />
+        <div class="entry-title">{{image}}</div>
+        <div class="entry-input">
+            <input class="media-image" data-qui-options-selectable_types="image" name="img"/>
+        </div>
     </label>
     <label>
-        <span class="entry-title">Preisinformation (z.B. pro Monat)</span>
-        <input type="text" name="priceinfo" />
+        <div class="entry-title">{{price}}</div>
+        <div class="entry-input">
+            <input type="text" name="price"/>
+        </div>
     </label>
     <label>
-        <span class="entry-title">Features:</span>
-        <ul class="features-list"></ul>
-        <a class="qui-button features-button">
-            Features bearbeiten <span class="fa fa-edit"></span>
-        </a>
-        <input name="features" type="hidden" value="" class="features-input"
-        data-json="" />
+        <div class="entry-title">{{srp}}</div>
+        <div class="entry-input">
+            <input type="text" name="srp"/>
+        </div>
+    </label>
+    <label>
+        <div class="entry-title">{{priceInfo}}</div>
+        <div class="entry-input">
+            <input type="text" name="priceinfo"/>
+        </div>
+    </label>
+    <label>
+        <div class="entry-title">{{featuresButton}}</div>
+        <div class="entry-input">
+            <input type="text" name="url" class="project-site"/>
+        </div>
+    </label>
+    <label>
+        <div class="entry-title entry-title-features">
+            <span class="entry-title-features-label">Features</span>
+            <a class="qui-button features-button">Bearbeiten <span class="fa fa-edit"></span></a>
+        </div>
+        <div class="entry-input">
+            <ul class="features-list"></ul>
+            <input name="features" type="hidden" value="" class="features-input"
+                   data-json=""/>
+        </div>
     </label>
 </div>

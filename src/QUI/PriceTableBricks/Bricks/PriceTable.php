@@ -37,7 +37,7 @@ class PriceTable extends Control
     }
 
     /**
-     * @return string|void
+     * @return string
      */
     public function getBody()
     {
@@ -47,6 +47,6 @@ class PriceTable extends Control
             'display'                 => $this->getAttribute('pricetable.display')
         ));
 
-        $Control->create();
+        return $Control->create();
     }
 }

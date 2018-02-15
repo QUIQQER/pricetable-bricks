@@ -5,34 +5,40 @@
         <!-- Price Table -->
         <brick control="\QUI\PriceTableBricks\Bricks\PriceTable">
             <title>
-                <locale group="quiqqer/pricetable" var="bricks.PriceTable.title"/>
+                <locale group="quiqqer/pricetable-bricks"
+                        var="bricks.PriceTable.title"/>
             </title>
             <description>
-                <locale group="quiqqer/pricetable" var="bricks.PriceTable.description"/>
+                <locale group="quiqqer/pricetable-bricks"
+                        var="bricks.PriceTable.description"/>
             </description>
 
             <settings>
                 <setting name="inherit-template-colors" type="checkbox">
-                    <locale group="quiqqer/pricetable" var="pricetable.inheritTemplateColors"/>
+                    <locale group="quiqqer/pricetable-bricks"
+                            var="bricks.pricetable.inheritTemplateColors"/>
                 </setting>
 
                 <setting name="pricetable.display" type="select">
                     <text>
-                        <locale group="quiqqer/pricetable"
-                                var="pricetable.display.title"/>
+                        <locale group="quiqqer/pricetable-bricks"
+                                var="bricks.pricetable.display.title"/>
                     </text>
                     <option value="default">
-                        <locale group="quiqqer/pricetable"
-                                var="pricetable.display.default"/>
+                        <locale group="quiqqer/pricetable-bricks"
+                                var="bricks.pricetable.display.default"/>
                     </option>
                 </setting>
 
                 <setting name="feature-lines" type="number">
-                    <locale group="quiqqer/pricetable" var="pricetable.featureLines"/>
+                    <locale group="quiqqer/pricetable-bricks"
+                            var="bricks.pricetable.featureLines"/>
                 </setting>
 
-                <setting name="entries" data-qui="package/quiqqer/pricetable-bricks/bin/Controls/PriceTable">
-                    <locale group="quiqqer/pricetable" var="PriceTable.entries"/>
+                <setting name="entries"
+                         data-qui="package/quiqqer/pricetable-bricks/bin/Controls/PriceTable">
+                    <locale group="quiqqer/pricetable-bricks"
+                            var="bricks.pricetable.entries"/>
                 </setting>
             </settings>
         </brick>

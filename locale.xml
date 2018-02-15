@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <locales>
-    <groups name="quiqqer/pricetablebricks" datatype="php, js">
+    <groups name="quiqqer/pricetable-bricks" datatype="php, js">
 
         <!--descritpion & title  -->
         <locale name="package.title">
@@ -9,14 +9,103 @@
         </locale>
 
         <locale name="package.description">
-            <de><![CDATA[...]]></de>
-            <en><![CDATA[...]]></en>
+            <de><![CDATA[Sammlung von Bausteinen, mit denen Sie Ihre Produkte,
+            Dienstleistungen, Tarife etc. in Form von einer modernen Tabelle darstellen. ]]></de>
+            <en><![CDATA[Collection of bricks to show your products or services on your website
+            in the form of a modern table.]]></en>
         </locale>
 
 
-        <locale name="control.pricetable.addEntry">
-            <de><![CDATA[Tabelleneintrag hinzufügen]]></de>
+        <!-- price table -->
+        <locale name="bricks.PriceTable.title">
+            <de><![CDATA[Standard Preistabelle]]></de>
+            <en><![CDATA[Standard Price Table]]></en>
+        </locale>
+        <locale name="bricks.PriceTable.description">
+            <de><![CDATA[Ein Baustein mit verschiedenen Designs um Ihre Produkte bzw Dinstleistungen
+            in form von einer Tabelle darzustellen.]]></de>
+            <en><![CDATA[Brick with different designs to show your products or services
+            in the form of a table.]]></en>
+        </locale>
+
+        <!-- price table: settings -->
+        <locale name="bricks.pricetable.inheritTemplateColors">
+            <de><![CDATA[Template spezifische Farben anwenden (wenn unterstützt)]]></de>
+            <en><![CDATA[Inherit template colors (if supported)]]></en>
+        </locale>
+        <locale name="bricks.pricetable.display.title">
+            <de><![CDATA[Template]]></de>
+            <en><![CDATA[Template]]></en>
+        </locale>
+            <locale name="bricks.pricetable.display.default">
+                <de><![CDATA[Default]]></de>
+                <en><![CDATA[Default]]></en>
+            </locale>
+
+        <locale name="bricks.pricetable.featureLines">
+            <de><![CDATA[Anzahl der Features]]></de>
+            <en><![CDATA[Features number]]></en>
+        </locale>
+
+        <locale name="bricks.pricetable.entries">
+            <de><![CDATA[Einträge]]></de>
+            <en><![CDATA[Entries]]></en>
+        </locale>
+
+        <locale name="bricks.pricetable.addEntry">
+            <de><![CDATA[Eintrag hinzufügen]]></de>
             <en><![CDATA[Add entry]]></en>
+        </locale>
+
+        <locale name="bricks.pricetable.button.order">
+            <de><![CDATA[Bestellen]]></de>
+            <en><![CDATA[Order]]></en>
+        </locale>
+
+        <!-- price table: settings: entry -->
+        <locale name="bricks.pricetable.entry.highlight">
+            <de><![CDATA[Dieser eintrag hervorheben]]></de>
+            <en><![CDATA[Highlight this entry]]></en>
+        </locale>
+        <locale name="bricks.pricetable.entry.entryTitle">
+            <de><![CDATA[Überschrift]]></de>
+            <en><![CDATA[Title]]></en>
+        </locale>
+        <locale name="bricks.pricetable.entry.subtitle">
+            <de><![CDATA[Untertitel bzw. Kurzbeschreibung]]></de>
+            <en><![CDATA[Subtitle or short description]]></en>
+        </locale>
+        <locale name="bricks.pricetable.entry.image">
+            <de><![CDATA[Bild]]></de>
+            <en><![CDATA[Image]]></en>
+        </locale>
+        <locale name="bricks.pricetable.entry.price">
+            <de><![CDATA[Preis]]></de>
+            <en><![CDATA[Price]]></en>
+        </locale>
+        <locale name="bricks.pricetable.entry.srp">
+            <de><![CDATA[Vorheriger Preis (UVP)]]></de>
+            <en><![CDATA[Last price (recommended retail price]]></en>
+        </locale>
+        <locale name="bricks.pricetable.entry.priceInfo">
+            <de><![CDATA[Preisinformation, z. B. "pro Monat"]]></de>
+            <en><![CDATA[Price info, eg. "per month"]]></en>
+        </locale>
+        <locale name="bricks.pricetable.entry.url">
+            <de><![CDATA[Link zur Seite]]></de>
+            <en><![CDATA[Site url]]></en>
+        </locale>
+        <locale name="bricks.pricetable.entry.featuresTitle">
+            <de><![CDATA[Features List]]></de>
+            <en><![CDATA[Features list]]></en>
+        </locale>
+        <locale name="bricks.pricetable.entry.featuresButton">
+            <de><![CDATA[Bearbeiten]]></de>
+            <en><![CDATA[Edit]]></en>
+        </locale>
+        <locale name="bricks.pricetable.entry.featuresPopup.title">
+            <de><![CDATA[Features bearbeiten]]></de>
+            <en><![CDATA[Edit features]]></en>
         </locale>
 
     </groups>

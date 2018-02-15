@@ -28,7 +28,7 @@ class PriceTable extends Control
         $this->setAttributes(array(
             'class'                   => 'qui-pricetable',
             'nodeName'                => 'section',
-            'inherit-template-colors' => true,
+            'inherit-template-colors' => false,
             'entries'                 => array(),
             'display'                 => 'default'
         ));
@@ -55,10 +55,6 @@ class PriceTable extends Control
             $entries[$key]['features'] = json_decode($entries[$key]['features'], true);
         }
 
-        echo "<pre>";
-        print_r($entries);
-        echo "</pre>";
-
         switch ($this->getAttribute('display')) {
             case 'default':
             default:
@@ -67,8 +63,7 @@ class PriceTable extends Control
                 break;
         }
 
-        echo $template . "<br>";
-
+        $noInheritTemplateColors = '';
         if (!$this->getAttribute('inherit-template-colors')) {
             $noInheritTemplateColors = 'no-inherit-template-colors';
         }
@@ -76,7 +71,7 @@ class PriceTable extends Control
         $Engine->assign(array(
             'this'                    => $this,
             'entries'                 => $entries,
-            'noInheritTemplateColors' => 'no-inherit-template-colors'
+            'noInheritTemplateColors' => $noInheritTemplateColors
         ));
 
         $this->addCSSFile($css);
@@ -84,44 +79,46 @@ class PriceTable extends Control
         return $Engine->fetch($template);
     }
 
-    public function testData()
+    public function setTestData()
     {
 
         $entries = array(
             0 => array(
-                'title'    => 'Super Paket',
-                'subtitle' => 'Billig aber gut',
-                'price'    => '25,99€',
-                'srp'      => '39,99€',
-                'img'      => '',
-                'url'      => '#',
-                'features' => '[{"1":"Nulla porttitor accumsan","2":"Vestibulum ac diam sit amet quam", "3":"Lorem ipsum dolor"}]'
+                'highlight' => false,
+                'title'     => 'Basic',
+                'subtitle'  => 'Perfect for small companies',
+                'price'     => '25,99€',
+                'srp'       => '39,99€',
+                'priceinfo' => 'pro Monat',
+                'img'       => '',
+                'url'       => '#',
+                'features'  => '{"1":"Nulla porttitor accumsan","2":"Vestibulum ac diam sit amet quam", "3":"Lorem ipsum dolor"}'
             ),
             1 => array(
-                'title'    => 'Mega',
-                'subtitle' => 'Lohnt sich',
-                'price'    => '99,99',
-                'srp'      => '',
-                'img'      => '',
-                'url'      => '#',
-                'features' => '[{"1":"Quisque velit nisi","2":"Curabitur aliquet", "3":"Vestibulum ante ipsum"}]'
+                'highlight' => true,
+                'title'     => 'Standard',
+                'subtitle'  => 'Perfect for medium budget',
+                'price'     => '99,99 €',
+                'srp'       => '',
+                'priceinfo' => 'pro Monat',
+                'img'       => '',
+                'url'       => '#',
+                'features'  => '{"1":"Quisque velit nisi","2":"Curabitur aliquet", "3":"Vestibulum ante ipsum"}'
             ),
             2 => array(
-                'title'    => 'Lupsim lerum',
-                'subtitle' => 'Donec sollicitudin',
-                'price'    => '500',
-                'srp'      => '501',
+                'highlight' => false,
+                'title'    => 'Advanced',
+                'subtitle' => 'Perfect for large budget',
+                'price'    => '500 €',
+                'srp'      => '501 €',
+                'priceinfo' => 'pro Monat',
                 'img'      => '',
                 'url'      => '#',
-                'features' => '[{"1":"Curabitur arcu erat","2":"Quisque velit nisi", "3":"Donec sollicitudin"}]'
+                'features' => '{"1":"Curabitur arcu erat","2":"Quisque velit nisi", "3":"Donec sollicitudin"}'
             )
         );
 
-        $entries = '[{"title":"Basic","subtitle":"Perfect for small companies","price":"29,99 €","srp":"39,99 €","priceinfo":"","img":"image.php?id=201&project=test","url":"#","highlight":"0","features":{"1":"Nulla porttitor accumsan","2":"Vestibulum ac diam sit amet quam", "3":"Lorem ipsum dolor"}},';
-        $entries .= '{"title":"Standard","subtitle":"Perfect for medium budget","price":"99,99","srp":"","priceinfo":"pro Monat","img":"/media/cache/test/bg/pexels-photo8__400x267.jpeg","url":"#","highlight":"1","features":{"1":"Quisque velit nisi","2":"Curabitur aliquet", "3":"Vestibulum ante ipsum"}},';
-        $entries .= '{"title":"Advanced","subtitle":"Perfect for large budget","price":"500","srp":"501","priceinfo":"pro Monat","img":"","url":"#","highlight":"0","features":{"1":"Curabitur arcu erat","2":"Quisque velit nisi", "3":"Donec sollicitudin"}},';
-        $entries .= '{"title":"Advanced","subtitle":"Perfect for large budget","price":"500","srp":"501","priceinfo":"pro Monat","img":"","url":"#","highlight":"0","features":{"1":"Curabitur arcu erat","2":"Quisque velit nisi", "3":"Donec sollicitudin"}}]';
-
+        $entries = json_encode($entries);
 
         $this->setAttribute('entries', $entries);
     }

@@ -3,7 +3,7 @@
 Price Table Bricks
 ========
 
-(...)
+Collection of bricks to show your products or services on your website in the form of a modern table.
 
 Package name:
 
@@ -13,8 +13,10 @@ Package name:
 Features
 --------
 
-- Different themes
-- (...)
+- At the moment, one brick available: Standard Price Table:
+    - As many entries as you wish (recommended 3 - 4).
+    - Full customisable texts.
+    -
 
 
 Installation
