@@ -13,58 +13,57 @@
 <div class="grid-children">
     <div class="grid-children-container">
 
+        <div class="qui-pricetable-container">
 
-<div class="qui-pricetable-container">
-
-    {foreach from=$entries item=entry key=key}
-    {if $entry.img}
-        {image src=$entry.img  width=200 onlysrc=true assign=img}
-    {/if}
-
-    <div class="qui-pricetable-entry {if $entry.highlight == true}highlight{/if}">
-
-        {if $entry.img}
-            <a class="" href="{$entry.url}" title="{$entry.title}">
-            {image src=$entry.img class="qui-pricetable-entry-image" title="{$entry.title}"}
-            </a>
-        {/if}
-
-        <header class="qui-pricetable-entry-header">
-            <h2 class="qui-pricetable-entry-header-title control-color {$noInheritTemplateColors}">
-                {$entry.title}
-            </h2>
-            {if $entry.subtitle}
-            <p class="qui-pricetable-entry-header-subtitle">{$entry.subtitle}</p>
+            {foreach from=$entries item=entry key=key}
+            {if $entry.img}
+                {image src=$entry.img  width=200 onlysrc=true assign=img}
             {/if}
-        </header>
-        <div class="qui-pricetable-entry-priceContainer">
-            <div class="qui-pricetable-entry-priceContainer-wrapper">
-                {if $entry.srp}
-                <span class="qui-pricetable-entry-priceContainer-wrapper-srp">{$entry.srp}</span>
+
+            <div class="qui-pricetable-entry {if $entry.highlight == true}highlight{/if}">
+
+                {if $entry.img}
+                    <a class="" href="{$entry.url}" title="{$entry.title}">
+                    {image src=$entry.img class="qui-pricetable-entry-image" title="{$entry.title}"}
+                    </a>
                 {/if}
-                <span class="qui-pricetable-entry-priceContainer-wrapper-price">{$entry.price}</span>
+
+                <header class="qui-pricetable-entry-header">
+                    <h2 class="qui-pricetable-entry-header-title control-color {$noInheritTemplateColors}">
+                        {$entry.title}
+                    </h2>
+                    {if $entry.subtitle}
+                    <p class="qui-pricetable-entry-header-subtitle">{$entry.subtitle}</p>
+                    {/if}
+                </header>
+                <div class="qui-pricetable-entry-priceContainer">
+                    <div class="qui-pricetable-entry-priceContainer-wrapper">
+                        {if $entry.srp}
+                        <span class="qui-pricetable-entry-priceContainer-wrapper-srp">{$entry.srp}</span>
+                        {/if}
+                        <span class="qui-pricetable-entry-priceContainer-wrapper-price">{$entry.price}</span>
+                    </div>
+
+                    {if $entry.priceinfo}
+                    <span class="qui-pricetable-entry-priceContainer-priceSuffix">{$entry.priceinfo}</span>
+                    {/if}
+                </div>
+
+                <ul class="qui-pricetable-entry-features">
+                    {foreach from=$entry.features item=feature}
+                    <li class="qui-pricetable-entry-features-entry">{$feature}</li>
+                    {/foreach}
+                </ul>
+
+                <div class="qui-pricetable-entry-button">
+                    <a class="button {$noInheritTemplateColors}" href="{$entry.url}" title="">
+                        {locale group="quiqqer/pricetable-bricks" var="bricks.pricetable.button.order"}
+                    </a>
+                </div>
             </div>
 
-            {if $entry.priceinfo}
-            <span class="qui-pricetable-entry-priceContainer-priceSuffix">{$entry.priceinfo}</span>
-            {/if}
-        </div>
-
-        <ul class="qui-pricetable-entry-features">
-            {foreach from=$entry.features item=feature}
-            <li class="qui-pricetable-entry-features-entry">{$feature}</li>
             {/foreach}
-        </ul>
 
-        <div class="qui-pricetable-entry-button">
-            <a class="button {$noInheritTemplateColors}" href="{$entry.url}" title="">
-                {locale group="quiqqer/pricetable-bricks" var="bricks.pricetable.button.order"}
-            </a>
         </div>
-    </div>
-
-    {/foreach}
-
-</div>
     </div>
 </div>

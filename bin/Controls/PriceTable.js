@@ -96,9 +96,12 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
 
         },
 
+        /**
+         * create new entry with input fields
+         */
         createEntry: function () {
             this.FeaturesBtn = this.$Elm.getElements('.features-button');
-            this.maxFeaturs = this.$Elm.getParent('tbody').getElement('input[name="feature-lines"]').value;
+            this.maxFeatures = this.$Elm.getParent('tbody').getElement('input[name="feature-lines"]').value;
 
             this.FeaturesBtn.addEvent('click', this.$openFeatures);
         },
@@ -118,11 +121,16 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
             });
         },
 
+        /**
+         * Create and open the features popup
+         *
+         * @param event
+         */
         $openFeatures: function (event) {
             var Target = event.target;
             var HiddenInput = Target.getParent('label').getElement('.features-input');
 
-            this.maxFeaturs = this.$Elm.getParent('tbody').getElement('input[name="feature-lines"]').value;
+            this.maxFeatures = this.$Elm.getParent('tbody').getElement('input[name="feature-lines"]').value;
 
             var self = this;
             new QUIConfirm({
@@ -162,9 +170,15 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
             }).open();
         },
 
+        /**
+         * Get the saved data from given HTML Object 
+         * 
+         * @param HiddenInput
+         * @returns {*}
+         */
         $getFeaturesData: function (HiddenInput) {
             var data = HiddenInput.value;
-
+            
             // data available?
             if (data) {
                 return JSON.parse(data);
@@ -172,12 +186,19 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
             return data;
         },
 
+        /**
+         * Render inputs of the features popup.
+         * Number of inputs is depend on maxFeatures
+         * 
+         * @param Content
+         * @param data
+         */
         $renderFeatures: function (Content, data) {
             var Container = new Element('div', {
                 'class': 'popup-features-container'
             });
 
-            for (var i = 0; i < this.maxFeaturs; i++) {
+            for (var i = 0; i < this.maxFeatures; i++) {
                 new Element('input', {
                     'class'    : 'popup-features-input',
                     'type'     : 'text',
@@ -189,6 +210,12 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
             Container.inject(Content);
         },
 
+        /**
+         * Save the features in a hidden input
+         *
+         * @param Win
+         * @param HiddenInput
+         */
         $saveFeaturesData: function (Win, HiddenInput) {
             var Content    = Win.getContent(),
                 inputs     = Content.getElements('input'),
@@ -212,6 +239,11 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
             this.$refreshData();
         },
 
+        /**
+         * Update the list with features (after closing the features popup)
+         *
+         * @param HiddenInput
+         */
         $updateFeaturesList: function (HiddenInput) {
             var List = HiddenInput.getParent('label').getElement('ul'),
                 Data = this.$getFeaturesData(HiddenInput);
@@ -228,4 +260,3 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
         }
     });
 });
-
