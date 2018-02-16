@@ -29,8 +29,8 @@
 }
 
 .qui-pricetable-entry-header-title {
-    padding-bottom: 10px;
     font-size: 26px;
+    padding: 0;
 }
 
 .qui-pricetable-entry-header-title.no-inherit-template-colors {
@@ -38,7 +38,7 @@
 }
 
 .qui-pricetable-entry-header-subtitle {
-    margin: 0;
+    margin: 10px 0 0 0;
 }
 
 .qui-pricetable-entry-priceContainer {
