@@ -68,9 +68,11 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
                 buttonText: QUILocale.get(lg, 'bricks.pricetable.addEntry'),
                 entry     : html
             });
-
         },
 
+        /**
+         * event: on import
+         */
         $onImport: function () {
             this.parent();
             var self = this;
@@ -117,7 +119,7 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
         $onParsed: function (event, Element) {
             QUIControls.parse(Element).then(function () {
                 // Element is fully parsed so we can finally show it
-                Element.getElement('.quiqqe-pricetable-bricks-entry').show();
+                Element.getElement('.quiqqer-pricetable-bricks-entry').show();
             });
         },
 
@@ -133,6 +135,7 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
             this.maxFeatures = this.$Elm.getParent('tbody').getElement('input[name="feature-lines"]').value;
 
             var self = this;
+
             new QUIConfirm({
                 class             : 'features-popup',
                 maxWidth          : 500,
@@ -148,14 +151,18 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
                         var Content = Win.getContent(),
                             data    = self.$getFeaturesData(HiddenInput);
 
-                        Content.set('html', '<header>' +
-                            QUILocale.get(lg, 'bricks.pricetable.featureLines') +
-                            ': ' + self.maxFeaturs + '</header>');
+                        Content.set({
+                            html: '<header>' +
+                            QUILocale.get(lg, 'bricks.pricetable.featureLines') + ': ' + self.maxFeaturs +
+                            '</header>'
+                        });
+
                         self.$renderFeatures(Content, data);
                     },
                     onClose: function () {
                         // needed because of chrome render bug
                         document.body.setStyle('transform', 'translateZ(0)');
+
                         (function () {
                             document.body.setStyle('transform', null);
                         }).delay(100);
@@ -171,25 +178,21 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
         },
 
         /**
-         * Get the saved data from given HTML Object 
-         * 
+         * Get the saved data from given HTML Object
+         *
          * @param HiddenInput
          * @returns {*}
          */
         $getFeaturesData: function (HiddenInput) {
             var data = HiddenInput.value;
-            
-            // data available?
-            if (data) {
-                return JSON.parse(data);
-            }
-            return data;
+
+            return data ? JSON.parse(data) : data;
         },
 
         /**
          * Render inputs of the features popup.
          * Number of inputs is depend on maxFeatures
-         * 
+         *
          * @param Content
          * @param data
          */
