@@ -89,13 +89,6 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
             this.HiddenInputs.each(function (HiddenInput) {
                 self.$updateFeaturesList(HiddenInput);
             });
-
-            var checkboxen = this.$Elm.getElements('input[type="checkbox"]');
-
-            checkboxen.addEvent('change', function () {
-                self.$refreshData();
-            });
-
         },
 
         /**
