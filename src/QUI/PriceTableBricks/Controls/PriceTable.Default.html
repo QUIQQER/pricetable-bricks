@@ -20,18 +20,28 @@
                 {image src=$entry.img  width=200 onlysrc=true assign=img}
             {/if}
 
+            {* Fix title issue *}
+            {* https://dev.quiqqer.com/quiqqer/package-bricks/issues/97 *}
+            {assign var=priceTableTitle value=''}
+            {if isset($entry['title']) && $entry['title']}
+                {assign var=priceTableTitle value=$entry['title']}
+            {elseif isset($entry['priceTableTitle']) && $entry['priceTableTitle']}
+                {assign var=priceTableTitle value=$entry['priceTableTitle']}
+            {/if}
+
+
             <div class="qui-pricetable-entry {*if $entry.highlight == true}highlight{/if*}"
-                 title="{$entry.title}">
+                 title="{$priceTableTitle}">
 
                 {if $entry.img}
-                    <a class="" href="{$entry.url}" title="{$entry.title}">
-                    {image src=$entry.img class="qui-pricetable-entry-image" title="{$entry.title}" height=200}
+                    <a class="" href="{$entry.url}" title="{$priceTableTitle}">
+                    {image src=$entry.img class="qui-pricetable-entry-image" title="{$priceTableTitle}" height=200}
                     </a>
                 {/if}
 
                 <header class="qui-pricetable-entry-header">
                     <h2 class="qui-pricetable-entry-header-title control-color {$noInheritTemplateColors}">
-                        {$entry.title}
+                        {$priceTableTitle}
                     </h2>
                     {if $entry.subtitle}
                     <p class="qui-pricetable-entry-header-subtitle">{$entry.subtitle}</p>

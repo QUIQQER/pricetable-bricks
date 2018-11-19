@@ -47,8 +47,7 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
             this.parent(options);
 
             this.addEvents({
-                onParsed: this.$onParsed,
-                onImport: this.$onImport
+                onParsed: this.$onParsed
             });
 
             var html = Mustache.render(EntryTemplate, {
@@ -74,8 +73,15 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
          * event: on import
          */
         $onImport: function () {
+            // look if some value exist
+            var value = this.getElm().value;
+
+            // fix title
+            if (value !== '') {
+                this.$onImportParseInput(value);
+            }
+
             this.parent();
-            var self = this;
 
             this.$Elm.getElement('button').addEvent('click', function () {
                 this.createEntry();
@@ -87,8 +93,34 @@ define('package/quiqqer/pricetable-bricks/bin/Controls/PriceTable', [
             this.HiddenInputs = this.$Elm.getElements('input[name="features"]');
 
             this.HiddenInputs.each(function (HiddenInput) {
-                self.$updateFeaturesList(HiddenInput);
-            });
+                this.$updateFeaturesList(HiddenInput);
+            }.bind(this));
+        },
+
+        /**
+         * Fix title
+         * https://dev.quiqqer.com/quiqqer/package-bricks/issues/97
+         *
+         * @param value | string
+         */
+        $onImportParseInput: function (value) {
+            if (!value) {
+                return;
+            }
+            
+            value = JSON.decode(value);
+
+            if (typeOf(value) !== 'array') {
+                return;
+            }
+
+            for (var i = 0, len = value.length; i < len; i++) {
+                if (typeof value[i].title !== 'undefined') {
+                    value[i].priceTableTitle = value[i].title;
+                }
+            }
+
+            this.getElm().value = JSON.encode(value);
         },
 
         /**

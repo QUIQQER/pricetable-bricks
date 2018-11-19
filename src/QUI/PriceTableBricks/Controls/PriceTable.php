@@ -78,50 +78,6 @@ class PriceTable extends Control
         return $Engine->fetch($template);
     }
 
-    public function setTestData()
-    {
-
-        $entries = array(
-            0 => array(
-                'highlight' => false,
-                'title'     => 'Basic',
-                'subtitle'  => 'Perfect for small companies',
-                'price'     => '25,99€',
-                'srp'       => '39,99€',
-                'priceinfo' => 'pro Monat',
-                'img'       => '',
-                'url'       => '#',
-                'features'  => '{"1":"Nulla porttitor accumsan","2":"Vestibulum ac diam sit amet quam", "3":"Lorem ipsum dolor"}'
-            ),
-            1 => array(
-                'highlight' => true,
-                'title'     => 'Standard',
-                'subtitle'  => 'Perfect for medium budget',
-                'price'     => '99,99 €',
-                'srp'       => '',
-                'priceinfo' => 'pro Monat',
-                'img'       => '',
-                'url'       => '#',
-                'features'  => '{"1":"Quisque velit nisi","2":"Curabitur aliquet", "3":"Vestibulum ante ipsum"}'
-            ),
-            2 => array(
-                'highlight' => false,
-                'title'    => 'Advanced',
-                'subtitle' => 'Perfect for large budget',
-                'price'    => '500 €',
-                'srp'      => '501 €',
-                'priceinfo' => 'pro Monat',
-                'img'      => '',
-                'url'      => '#',
-                'features' => '{"1":"Curabitur arcu erat","2":"Quisque velit nisi", "3":"Donec sollicitudin"}'
-            )
-        );
-
-        $entries = json_encode($entries);
-
-        $this->setAttribute('entries', $entries);
-    }
-
     /**
      * @return mixed|QUI\Projects\Site
      * @throws QUI\Exception
