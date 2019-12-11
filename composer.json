@@ -1,30 +1,27 @@
 {
-    "name" : "quiqqer/pricetable-bricks",
-    "type" : "quiqqer-module",
-    "description" : "Collection of bricks to show your products or services on your website in the form of a modern table.",
-    "version" : "dev-master",
-    "license" : "GPL-3.0+",
-
-    "authors" : [{
-        "name": "Michael Danielczok",
-        "email": "michael@pcsg.de",
-        "homepage": "http://www.pcsg.de",
-        "role": "Developer"
-    }],
-
-    "support" : {
+    "name": "quiqqer\/pricetable-bricks",
+    "type": "quiqqer-module",
+    "description": "Collection of bricks to show your products or services on your website in the form of a modern table.",
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "Michael Danielczok",
+            "email": "michael@pcsg.de",
+            "homepage": "http:\/\/www.pcsg.de",
+            "role": "Developer"
+        }
+    ],
+    "support": {
         "email": "support@pcsg.de",
-        "url": "http://www.pcsg.de"
+        "url": "http:\/\/www.pcsg.de"
     },
-
     "require": {
-        "quiqqer/quiqqer" : "*@dev",
+        "quiqqer\/quiqqer": "*@dev",
         "quiqqer\/fontawesome": "*@dev"
     },
-
     "autoload": {
-        "psr-4" : {
-            "QUI\\PriceTableBricks\\" : "src/QUI/PriceTableBricks"
+        "psr-4": {
+            "QUI\\PriceTableBricks\\": "src\/QUI\/PriceTableBricks"
         }
     }
 }
