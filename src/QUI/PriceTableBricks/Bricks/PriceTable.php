@@ -50,6 +50,10 @@ class PriceTable extends Control
             'showTitle'               => $this->getAttribute('showTitle')
         ));
 
-        return $Control->create();
+        $result = $Control->create();
+
+        $this->addCSSFiles($Control->getCSSFiles());
+
+        return $result;
     }
 }
